@@ -559,3 +559,149 @@ y=(k1*(b2-b1))/(k1-k2)+b1;
 Console.WriteLine($"Координаты пересечения прямых X: {Math.Round(x,2)}, Y: {Math.Round(y,2)}");
 }
 */
+
+// Задача 20. Задайте двумерный массив размером m×n, заполненный случайными вещественными числами.
+
+/*
+double[,] CreateArray()
+{   
+    Console.Write("Input a number of rows: ");
+    int rowsM = Convert.ToInt32(Console.ReadLine());
+    Console.Write("Input a number of columns: ");
+    int columnsN = Convert.ToInt32(Console.ReadLine());
+    Console.Write("Input of min number: ");
+    int minNum = Convert.ToInt32(Console.ReadLine());
+    Console.Write("Input of max number: ");
+    int maxNum = Convert.ToInt32(Console.ReadLine());
+
+    double[,] array = new double[rowsM, columnsN];
+    for(int i = 0; i < rowsM ; i++)
+        for(int j = 0; j < columnsN; j++)
+            array[i,j] = new Random().Next(minNum,maxNum+1) +  new Random().NextDouble();
+    return array;
+}
+
+void Show2dArrayDouble(double[,] array)
+{
+    for(int i = 0; i < array.GetLength(0); i++)
+    {
+        for(int j = 0; j < array.GetLength(1); j++)
+            Console.Write(Math.Round(array[i,j],2)+"  ");
+        Console.WriteLine(" ");
+    }
+    Console.WriteLine();
+}
+double[,] myArray = CreateArray();
+Show2dArrayDouble(myArray);
+*/
+
+// Задача 21. Напишите программу, которая на вход принимает позиции элемента в двумерном массиве, и возвращает значение этого элемента или же указание, что такого элемента нет.
+
+/*
+int[,] CreateRandom2DArray(int rows, int columns)
+{
+    int[,] array = new int[rows, columns];
+    for(int i = 0; i < rows; i++)    
+        for(int j = 0; j < columns; j++)
+            array[i,j] = new Random().Next(1, 101);
+    return array;
+}
+
+void Show2DArray(int[,] array)
+{
+    for(int i = 0; i < array.GetLength(0); i++)
+    {
+        for(int j = 0; j < array.GetLength(1); j++)  
+        {
+            Console.Write(array[i,j] + " ");
+        }
+        Console.WriteLine();
+    }
+
+}
+
+void IndexArray (int[,] array, int rowsIndex, int columnsIndex)
+{
+    for(int i = 0; i < array.GetLength(0); i++)
+    {
+        for(int j = 0; j < array.GetLength(1); j++)  
+        {
+            if (i == rowsIndex && j == columnsIndex)
+            Console.Write($"Numder {array[rowsIndex,columnsIndex]} of index = [{rowsIndex},{columnsIndex}]");
+        }
+    }
+}
+
+Console.Write("Input number of rows: ");
+int rows = Convert.ToInt32(Console.ReadLine());
+Console.Write("Input number of columns: ");
+int columns = Convert.ToInt32(Console.ReadLine());
+Console.Write("Input index of row: ");
+int rowsIndex = Convert.ToInt32(Console.ReadLine());
+Console.Write("Input index of columns: ");
+int columnsIndex = Convert.ToInt32(Console.ReadLine());
+
+Console.WriteLine("");
+Console.WriteLine("Random array from 1 to 100:"+"\t");
+int[,] myArray = CreateRandom2DArray(rows, columns);
+Show2DArray(myArray);
+Console.WriteLine("");
+
+if (rows-1 < rowsIndex||columns-1 < columnsIndex)
+Console.Write($"Error! Index [{rowsIndex},{columnsIndex}] more array.");
+else
+IndexArray(myArray, rowsIndex, columnsIndex);
+*/
+
+// Задача 22. Задайте двумерный массив из целых чисел. Найдите среднее арифметическое элементов в каждом столбце.
+
+/* 
+int[,] CreateRandom2DArray(int rows, int columns)
+{
+    int[,] array = new int[rows, columns];
+
+    for(int i = 0; i < rows; i++)    
+        for(int j = 0; j < columns; j++)
+            array[i,j] = new Random().Next(1, 11);        
+    
+    return array;
+
+}   
+
+void Show2DArray(int[,] array)
+{
+    Console.WriteLine();
+    for(int i = 0; i < array.GetLength(0); i++)
+    {
+        for(int j = 0; j < array.GetLength(1); j++)  
+        {
+            Console.Write(array[i,j] + " ");
+        }
+        Console.WriteLine();
+    }
+    Console.WriteLine();
+}
+
+void averageColumns(int[,] array, int rows)
+{
+    for(int j = 0; j < array.GetLength(1); j++)
+    {
+        double average = 0; 
+        for(int i = 0; i < array.GetLength(0); i++)
+        {
+            average += array[i,j];
+        }
+        average = Math.Round (average/rows,2);
+        Console.Write(average + " ");
+    }
+}
+
+Console.Write("Input number of rows: ");
+int rows = Convert.ToInt32(Console.ReadLine());
+Console.Write("Input number of columns: ");
+int columns = Convert.ToInt32(Console.ReadLine());
+
+int [,] myArray = CreateRandom2DArray(rows, columns);
+Show2DArray(myArray);
+averageColumns(myArray,rows);
+*/
